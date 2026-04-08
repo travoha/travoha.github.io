@@ -1,10 +1,338 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAVOHA | Explore. Journey. Discover.</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .bg-brand-dark { background-color: #0d2e41; }
+        .text-brand-dark { color: #0d2e41; }
+        .bg-brand-green { background-color: #2d5a27; }
+        .text-brand-green { color: #2d5a27; }
+        .bg-brand-orange { background-color: #f39200; }
+        .text-brand-orange { color: #f39200; }
+        
+        .nav-transition { transition: all 0.3s ease; }
+        .glass-card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
+    </style>
 </head>
-<body>
-  <h1>Welcome to my website 🎉</h1>
-  <p>This is my first site hosted for free!</p>
+<body class="text-gray-900 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 py-5 nav-transition">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <!-- Logo Section -->
+            <div class="flex flex-col leading-none">
+                <span class="text-2xl font-black tracking-tighter text-white logo-text">TRAVOHA</span>
+                <span class="text-[8px] uppercase tracking-widest font-bold text-gray-200 logo-sub">Explore. Journey. Discover.</span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center text-white font-medium menu-links">
+                <a href="#" class="hover:text-brand-orange transition-colors">Home</a>
+                <a href="#" class="hover:text-brand-orange transition-colors">Destinations</a>
+                <a href="#" class="hover:text-brand-orange transition-colors">Packages</a>
+                <a href="#" class="hover:text-brand-orange transition-colors">Activities</a>
+                <a href="#" class="hover:text-brand-orange transition-colors">Visa</a>
+                <a href="#" class="hover:text-brand-orange transition-colors">Contact</a>
+                <button class="bg-brand-orange hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold transition-all shadow-lg">
+                    Plan My Trip
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white" id="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-2xl py-8 flex flex-col items-center space-y-4 md:hidden">
+            <a href="#" class="text-gray-800 font-semibold text-lg">Home</a>
+            <a href="#" class="text-gray-800 font-semibold text-lg">Destinations</a>
+            <a href="#" class="text-gray-800 font-semibold text-lg">Packages</a>
+            <a href="#" class="text-gray-800 font-semibold text-lg">Activities</a>
+            <a href="#" class="text-gray-800 font-semibold text-lg">Visa</a>
+            <a href="#" class="text-gray-800 font-semibold text-lg">Contact</a>
+            <button class="bg-brand-orange text-white px-8 py-3 rounded-full font-bold w-4/5">Plan My Trip</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen min-h-[700px] flex items-center justify-center text-white">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1920&q=80" alt="Hero Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 max-w-4xl">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6">Discover Your Next <span class="text-brand-orange">Adventure</span></h1>
+            <p class="text-xl md:text-2xl mb-10 font-light text-gray-100">Curated travel experiences across the world for the modern explorer.</p>
+
+            <!-- Search Bar -->
+            <div class="bg-white p-2 md:p-3 rounded-2xl md:rounded-full shadow-2xl flex flex-col md:flex-row items-center max-w-3xl mx-auto gap-2">
+                <div class="flex items-center flex-1 w-full px-4 border-b md:border-b-0 md:border-r border-gray-100 py-3">
+                    <i data-lucide="map-pin" class="text-brand-orange w-6 h-6 mr-3"></i>
+                    <input type="text" placeholder="Search destinations, tours, activities..." class="w-full outline-none text-gray-700 font-medium placeholder:text-gray-400">
+                </div>
+                <button class="w-full md:w-auto bg-brand-dark hover:bg-slate-900 text-white px-10 py-4 rounded-xl md:rounded-full flex items-center justify-center font-bold transition-all">
+                    <i data-lucide="search" class="w-5 h-5 mr-2"></i>
+                    Search
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark">Our Premium Services</h2>
+                <div class="w-16 h-1 bg-brand-orange mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-brand-dark flex items-center justify-center rounded-2xl mb-6 shadow-lg">
+                        <i data-lucide="file-text" class="text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3 group-hover:text-brand-orange">Visa Application</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Hassle-free visa assistance for over 50+ countries with high success rates.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-brand-green flex items-center justify-center rounded-2xl mb-6 shadow-lg">
+                        <i data-lucide="briefcase" class="text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3 group-hover:text-brand-orange">Holiday Packages</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">All-inclusive domestic and international travel packages tailored for you.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-brand-orange flex items-center justify-center rounded-2xl mb-6 shadow-lg">
+                        <i data-lucide="compass" class="text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3 group-hover:text-brand-orange">Activities</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Book the best local tours, skip-the-line tickets and hidden gems.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all hover:-translate-y-2 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-brand-dark flex items-center justify-center rounded-2xl mb-6 shadow-lg">
+                        <i data-lucide="plane" class="text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3 group-hover:text-brand-orange">Adventures</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Trekking, scuba diving, and adrenaline-pumping experiences globally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Destinations -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark">Top Destinations</h2>
+                    <p class="text-gray-600 mt-2">Explore the world's most sought-after locations.</p>
+                </div>
+                <button class="text-brand-orange font-bold flex items-center hover:underline">
+                    View All <i data-lucide="chevron-right" class="w-5 h-5 ml-1"></i>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Bali -->
+                <div class="relative h-96 rounded-3xl overflow-hidden group shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <h3 class="text-2xl font-bold">Bali</h3>
+                        <p class="text-sm opacity-90">Starting from ₹49,999</p>
+                    </div>
+                </div>
+                <!-- Dubai -->
+                <div class="relative h-96 rounded-3xl overflow-hidden group shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <h3 class="text-2xl font-bold">Dubai</h3>
+                        <p class="text-sm opacity-90">Starting from ₹55,000</p>
+                    </div>
+                </div>
+                <!-- Switzerland -->
+                <div class="relative h-96 rounded-3xl overflow-hidden group shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <h3 class="text-2xl font-bold">Switzerland</h3>
+                        <p class="text-sm opacity-90">Starting from ₹1,20,000</p>
+                    </div>
+                </div>
+                <!-- Kerala -->
+                <div class="relative h-96 rounded-3xl overflow-hidden group shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <h3 class="text-2xl font-bold">Kerala</h3>
+                        <p class="text-sm opacity-90">Starting from ₹25,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-24 bg-gray-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-4xl font-bold text-brand-dark mb-6 leading-tight">
+                    Why Thousands Of Travelers <span class="text-brand-green">Trust TRAVOHA</span>
+                </h2>
+                <p class="text-gray-600 mb-10 text-lg">We don't just book trips; we create memories. With TRAVOHA, you get local expertise combined with global standards of service.</p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="bg-white p-3 rounded-xl shadow-sm mr-5"><i data-lucide="shield-check" class="text-brand-orange"></i></div>
+                        <div><h4 class="font-bold text-brand-dark">Best Price Guarantee</h4><p class="text-gray-500 text-sm">We match any market price to ensure value.</p></div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-white p-3 rounded-xl shadow-sm mr-5"><i data-lucide="compass" class="text-brand-orange"></i></div>
+                        <div><h4 class="font-bold text-brand-dark">Custom Itineraries</h4><p class="text-gray-500 text-sm">Tailored plans that match your personal style.</p></div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-white p-3 rounded-xl shadow-sm mr-5"><i data-lucide="headphones" class="text-brand-orange"></i></div>
+                        <div><h4 class="font-bold text-brand-dark">24/7 Support</h4><p class="text-gray-500 text-sm">Our concierge is always a call away.</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative grid grid-cols-2 gap-4">
+                <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=400&q=80" class="rounded-3xl shadow-xl mt-12">
+                <img src="https://images.unsplash.com/photo-1493558103817-58593965b282?auto=format&fit=crop&w=400&q=80" class="rounded-3xl shadow-xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 bg-brand-dark text-white text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16">What Our Travelers Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-3xl text-left border border-white/5">
+                    <div class="flex text-brand-orange mb-4"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                    <p class="italic text-gray-200 mb-6">"TRAVOHA made our Switzerland trip seamless. Everything from visa to guides was perfect!"</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gray-400 mr-4 overflow-hidden"><img src="https://i.pravatar.cc/100?u=1"></div>
+                        <div><h4 class="font-bold">Rahul Sharma</h4><p class="text-xs text-gray-400">Zurich Trip</p></div>
+                    </div>
+                </div>
+                <div class="glass-card p-8 rounded-3xl text-left border border-white/5">
+                    <div class="flex text-brand-orange mb-4"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                    <p class="italic text-gray-200 mb-6">"Best adventure holiday ever! The trekking itinerary was perfectly balanced for our group."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gray-400 mr-4 overflow-hidden"><img src="https://i.pravatar.cc/100?u=2"></div>
+                        <div><h4 class="font-bold">Anita V.</h4><p class="text-xs text-gray-400">Bali Adventure</p></div>
+                    </div>
+                </div>
+                <div class="glass-card p-8 rounded-3xl text-left border border-white/5">
+                    <div class="flex text-brand-orange mb-4"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                    <p class="italic text-gray-200 mb-6">"Reliable and professional. They handled all the complicated paperwork for our Dubai visa."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gray-400 mr-4 overflow-hidden"><img src="https://i.pravatar.cc/100?u=3"></div>
+                        <div><h4 class="font-bold">Vikram S.</h4><p class="text-xs text-gray-400">Dubai Travel</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-24 pb-12 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div>
+                <div class="flex flex-col leading-none mb-6">
+                    <span class="text-3xl font-black tracking-tighter text-brand-dark">TRAVOHA</span>
+                    <span class="text-[10px] uppercase tracking-widest font-bold text-brand-green">Explore. Journey. Discover.</span>
+                </div>
+                <p class="text-gray-500 mb-6">Curating world-class travel experiences for the modern explorer.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center rounded-full hover:bg-brand-orange hover:text-white transition-all"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center rounded-full hover:bg-brand-orange hover:text-white transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center rounded-full hover:bg-brand-orange hover:text-white transition-all"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-brand-dark mb-6">Quick Links</h4>
+                <ul class="space-y-4 text-gray-500 text-sm">
+                    <li><a href="#" class="hover:text-brand-orange">About Us</a></li>
+                    <li><a href="#" class="hover:text-brand-orange">Packages</a></li>
+                    <li><a href="#" class="hover:text-brand-orange">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-brand-orange">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-brand-dark mb-6">Destinations</h4>
+                <ul class="space-y-4 text-gray-500 text-sm">
+                    <li><a href="#" class="hover:text-brand-orange">Bali, Indonesia</a></li>
+                    <li><a href="#" class="hover:text-brand-orange">Dubai, UAE</a></li>
+                    <li><a href="#" class="hover:text-brand-orange">Europe Tours</a></li>
+                    <li><a href="#" class="hover:text-brand-orange">Kerala, India</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-brand-dark mb-6">Contact</h4>
+                <ul class="space-y-4 text-gray-500 text-sm">
+                    <li class="flex"><i data-lucide="map-pin" class="w-4 h-4 mr-3 text-brand-orange"></i> Mumbai, Maharashtra</li>
+                    <li class="flex"><i data-lucide="phone" class="w-4 h-4 mr-3 text-brand-orange"></i> +91 98765 43210</li>
+                    <li class="flex"><i data-lucide="mail" class="w-4 h-4 mr-3 text-brand-orange"></i> support@travoha.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-gray-100 text-center text-sm text-gray-400">
+            <p>© 2024 TRAVOHA Travel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        const logoText = document.querySelector('.logo-text');
+        const menuLinks = document.querySelector('.menu-links');
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'shadow-md', 'py-3');
+                navbar.classList.remove('py-5');
+                logoText.classList.replace('text-white', 'text-brand-dark');
+                menuLinks.classList.replace('text-white', 'text-gray-700');
+                mobileBtn.classList.replace('text-white', 'text-brand-dark');
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-md', 'py-3');
+                navbar.classList.add('py-5');
+                logoText.classList.replace('text-brand-dark', 'text-white');
+                menuLinks.classList.replace('text-gray-700', 'text-white');
+                mobileBtn.classList.replace('text-brand-dark', 'text-white');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
-</html>
+</html> 
