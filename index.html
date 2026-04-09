@@ -10,48 +10,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .bg-brand-dark { background-color: #0d2e41; }
-        .text-brand-dark { color: #0d2e41; }
-        .bg-brand-green { background-color: #2d5a27; }
-        .text-brand-green { color: #2d5a27; }
-        .bg-brand-orange { background-color: #f39200; }
-        .text-brand-orange { color: #f39200; }
-        
-        .nav-transition { transition: all 0.3s ease; }
-        .glass-card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
-    </style>
+   <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+    /* New Blue-Green Theme */
+    .bg-brand-dark { background-color: #0b3558; }
+    .text-brand-dark { color: #0b3558; }
+
+    .bg-brand-green { background-color: #0f766e; }
+    .text-brand-green { color: #0f766e; }
+
+    /* Keep accent but softer and less orange-heavy */
+    .bg-brand-orange { background-color: #14b8a6; }
+    .text-brand-orange { color: #14b8a6; }
+
+    .nav-transition { transition: all 0.3s ease; }
+    .glass-card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
+
+    /* Slideshow animation */
+    .hero-slide {
+        transition: opacity 1.2s ease-in-out;
+    }
+</style>
 </head>
 <body class="text-gray-900 overflow-x-hidden">
 
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 py-5 nav-transition">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <!-- Logo Section -->
-            <div class="flex flex-col leading-none">
-                <span class="text-2xl font-black tracking-tighter text-white logo-text">TRAVOHA</span>
-                <span class="text-[8px] uppercase tracking-widest font-bold text-gray-200 logo-sub">Explore. Journey. Discover.</span>
-            </div>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 items-center text-white font-medium menu-links">
-                <a href="#" class="hover:text-brand-orange transition-colors">Home</a>
-                <a href="#" class="hover:text-brand-orange transition-colors">Destinations</a>
-                <a href="#" class="hover:text-brand-orange transition-colors">Packages</a>
-                <a href="#" class="hover:text-brand-orange transition-colors">Activities</a>
-                <a href="#" class="hover:text-brand-orange transition-colors">Visa</a>
-                <a href="#" class="hover:text-brand-orange transition-colors">Contact</a>
-                <button class="bg-brand-orange hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold transition-all shadow-lg">
-                    Plan My Trip
-                </button>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden text-white" id="mobile-menu-btn">
-                <i data-lucide="menu"></i>
-            </button>
-        </div>
+  <!-- Navigation -->
+<nav id="navbar" class="fixed w-full z-50 py-5 nav-transition">
+	<div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+		<!-- LEFT: Logo -->
+		<div> <img src="logo.png" alt="TRAVOHA Logo" class="h-16 md:h-20 w-auto"> </div>
+		<!-- Desktop Menu -->
+		<!-- CENTER: Menu -->
+		<div class="hidden md:flex space-x-8 items-center text-white font-medium menu-links"> <a href="#" class="hover:text-brand-orange transition-colors">Home</a> <a href="#" class="hover:text-brand-orange transition-colors">Destinations</a> <a href="#" class="hover:text-brand-orange transition-colors">Packages</a> <a href="#" class="hover:text-brand-orange transition-colors">Activities</a> <a href="#" class="hover:text-brand-orange transition-colors">Visa</a> <a href="#" class="hover:text-brand-orange transition-colors">Contact</a> </div>
+		<!-- RIGHT: Button -->
+		<div class="hidden md:flex">
+			<button class="bg-brand-orange hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold transition-all shadow-lg"> Plan My Trip </button>
+		</div>
+		<!-- Mobile Menu -->
+		<button class="md:hidden text-white" id="mobile-menu-btn"> <i data-lucide="menu"></i> </button>
+	</div>
 
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-2xl py-8 flex flex-col items-center space-y-4 md:hidden">
@@ -68,9 +66,12 @@
     <!-- Hero Section -->
     <section class="relative h-screen min-h-[700px] flex items-center justify-center text-white">
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1920&q=80" alt="Hero Background" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/40"></div>
-        </div>
+    <img id="hero-slide" 
+         src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1920&q=80" 
+         alt="Travel Destination Background" 
+         class="hero-slide w-full h-full object-cover opacity-100">
+    <div class="absolute inset-0 bg-black/45"></div>
+</div>
 
         <div class="relative z-10 text-center px-6 max-w-4xl">
             <h1 class="text-5xl md:text-7xl font-extrabold mb-6">Discover Your Next <span class="text-brand-orange">Adventure</span></h1>
@@ -80,7 +81,7 @@
             <div class="bg-white p-2 md:p-3 rounded-2xl md:rounded-full shadow-2xl flex flex-col md:flex-row items-center max-w-3xl mx-auto gap-2">
                 <div class="flex items-center flex-1 w-full px-4 border-b md:border-b-0 md:border-r border-gray-100 py-3">
                     <i data-lucide="map-pin" class="text-brand-orange w-6 h-6 mr-3"></i>
-                    <input type="text" placeholder="Search destinations, tours, activities..." class="w-full outline-none text-gray-700 font-medium placeholder:text-gray-400">
+                    <input id="dynamic-search" type="text" placeholder="" class="w-full outline-none text-gray-700 font-medium placeholder:text-gray-400">
                 </div>
                 <button class="w-full md:w-auto bg-brand-dark hover:bg-slate-900 text-white px-10 py-4 rounded-xl md:rounded-full flex items-center justify-center font-bold transition-all">
                     <i data-lucide="search" class="w-5 h-5 mr-2"></i>
@@ -213,10 +214,17 @@
                     </div>
                 </div>
             </div>
-            <div class="relative grid grid-cols-2 gap-4">
-                <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=400&q=80" class="rounded-3xl shadow-xl mt-12">
-                <img src="https://images.unsplash.com/photo-1493558103817-58593965b282?auto=format&fit=crop&w=400&q=80" class="rounded-3xl shadow-xl">
-            </div>
+            <div class="grid grid-cols-2 gap-6">
+    
+    <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=500&q=80"
+         class="rounded-3xl shadow-xl w-full h-[320px] object-cover"
+         alt="Traveler walking in city">
+
+    <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=500&q=80"
+         class="rounded-3xl shadow-xl w-full h-[320px] object-cover"
+         alt="Traveler enjoying destination">
+
+</div>
         </div>
     </section>
 
@@ -263,10 +271,39 @@
                 </div>
                 <p class="text-gray-500 mb-6">Curating world-class travel experiences for the modern explorer.</p>
                 <div class="flex space-x-4">
-                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center rounded-full hover:bg-brand-orange hover:text-white transition-all"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center rounded-full hover:bg-brand-orange hover:text-white transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                    <a href="#" class="w-10 h-10 bg-gray-100 flex items-center justify-center rounded-full hover:bg-brand-orange hover:text-white transition-all"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                </div>
+    
+ <div class="flex space-x-4">
+    
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/travelwithtravoha/" target="_blank"
+       class="w-12 h-12 bg-gray-100 flex items-center justify-center rounded-full hover:bg-brand-green hover:text-white transition-all text-brand-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17" cy="7" r="1"></circle>
+        </svg>
+    </a>
+
+    <!-- X (Twitter) -->
+    <a href="https://x.com/travelwithtravoha" target="_blank"
+       class="w-12 h-12 bg-gray-100 flex items-center justify-center rounded-full hover:bg-brand-green hover:text-white transition-all text-brand-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 2h3l-7.5 8.5L22 22h-6l-4.5-6L6 22H3l8-9L2 2h6l4 5.5L18 2z"/>
+        </svg>
+    </a>
+
+    <!-- Gmail -->
+    <a href="mailto:travelwithtravoha@gmail.com"
+       class="w-12 h-12 bg-gray-100 flex items-center justify-center rounded-full hover:bg-brand-green hover:text-white transition-all text-brand-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+            <path d="M3 7l9 6 9-6"></path>
+        </svg>
+    </a>
+
+</div>
+
+</div>
             </div>
             <div>
                 <h4 class="font-bold text-brand-dark mb-6">Quick Links</h4>
@@ -289,50 +326,118 @@
             <div>
                 <h4 class="font-bold text-brand-dark mb-6">Contact</h4>
                 <ul class="space-y-4 text-gray-500 text-sm">
-                    <li class="flex"><i data-lucide="map-pin" class="w-4 h-4 mr-3 text-brand-orange"></i> Mumbai, Maharashtra</li>
-                    <li class="flex"><i data-lucide="phone" class="w-4 h-4 mr-3 text-brand-orange"></i> +91 98765 43210</li>
-                    <li class="flex"><i data-lucide="mail" class="w-4 h-4 mr-3 text-brand-orange"></i> support@travoha.com</li>
+                    <li class="flex"><i data-lucide="map-pin" class="w-4 h-4 mr-3 text-brand-orange"></i> Palghar, Maharashtra</li>
+                    <li class="flex"><i data-lucide="phone" class="w-4 h-4 mr-3 text-brand-orange"></i> +91 9373528549 </li>
+                    <li class="flex"><i data-lucide="mail" class="w-4 h-4 mr-3 text-brand-orange"></i> travelwithtravoha@gmail.com</li>
                 </ul>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-gray-100 text-center text-sm text-gray-400">
-            <p>© 2024 TRAVOHA Travel. All rights reserved.</p>
+            <p>© 2026 TRAVOHA LLP. All rights reserved.</p>
         </div>
     </footer>
 
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+   <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
 
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        const logoText = document.querySelector('.logo-text');
-        const menuLinks = document.querySelector('.menu-links');
-        const mobileBtn = document.getElementById('mobile-menu-btn');
+    // Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    const menuLinks = document.querySelector('.menu-links');
+    const mobileBtn = document.getElementById('mobile-menu-btn');
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-white', 'shadow-md', 'py-3');
-                navbar.classList.remove('py-5');
-                logoText.classList.replace('text-white', 'text-brand-dark');
-                menuLinks.classList.replace('text-white', 'text-gray-700');
-                mobileBtn.classList.replace('text-white', 'text-brand-dark');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('bg-white', 'shadow-md', 'py-3');
+            navbar.classList.remove('py-5');
+            menuLinks.classList.replace('text-white', 'text-gray-700');
+            mobileBtn.classList.replace('text-white', 'text-brand-dark');
+        } else {
+            navbar.classList.remove('bg-white', 'shadow-md', 'py-3');
+            navbar.classList.add('py-5');
+            menuLinks.classList.replace('text-gray-700', 'text-white');
+            mobileBtn.classList.replace('text-brand-dark', 'text-white');
+        }
+    });
+
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Hero Background Slideshow
+    const heroSlide = document.getElementById('hero-slide');
+
+    const heroImages = [
+        "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1920&q=80", // Bali
+        "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1920&q=80", // Laos
+        "https://images.unsplash.com/photo-1586500036706-41963de24d8b?auto=format&fit=crop&w=1920&q=80", // Sri Lanka
+        "https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=1920&q=80", // Vietnam
+        "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=1920&q=80", // Thailand
+        "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1920&q=80", // Maldives
+        "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1920&q=80", // Mauritius
+        "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1920&q=80", // Singapore
+        "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1920&q=80"  // Malaysia
+    ];
+
+    let currentSlide = 0;
+
+    setInterval(() => {
+        heroSlide.style.opacity = "0";
+
+        setTimeout(() => {
+            currentSlide = (currentSlide + 1) % heroImages.length;
+            heroSlide.src = heroImages[currentSlide];
+            heroSlide.style.opacity = "1";
+        }, 800);
+    }, 5000); // change every 5 seconds
+
+    // Dynamic Search Typing Effect
+    const searchInput = document.getElementById('dynamic-search');
+
+    const destinations = [
+        "Search for Bali",
+        "Search for Sri Lanka",
+        "Search for Vietnam",
+        "Search for Thailand",
+        "Search for Maldives",
+        "Search for Mauritius",
+        "Search for Singapore",
+        "Search for Malaysia",
+        "Search for Laos"
+    ];
+
+    let destinationIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+        const currentText = destinations[destinationIndex];
+        const visibleText = currentText.substring(0, charIndex);
+        searchInput.placeholder = visibleText;
+
+        if (!isDeleting && charIndex < currentText.length) {
+            charIndex++;
+            setTimeout(typeEffect, 100);
+        } else if (isDeleting && charIndex > 0) {
+            charIndex--;
+            setTimeout(typeEffect, 50);
+        } else {
+            if (!isDeleting) {
+                isDeleting = true;
+                setTimeout(typeEffect, 1500); // wait after full text
             } else {
-                navbar.classList.remove('bg-white', 'shadow-md', 'py-3');
-                navbar.classList.add('py-5');
-                logoText.classList.replace('text-brand-dark', 'text-white');
-                menuLinks.classList.replace('text-gray-700', 'text-white');
-                mobileBtn.classList.replace('text-brand-dark', 'text-white');
+                isDeleting = false;
+                destinationIndex = (destinationIndex + 1) % destinations.length;
+                setTimeout(typeEffect, 400);
             }
-        });
+        }
+    }
 
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
+    typeEffect();
+</script>
 </body>
 </html> 
